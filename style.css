@@ -1,27 +1,30 @@
+/* General Styling */
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
-    color: #333;
-    line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    background-color: #EAE7DC; /* Soft cream background */
+    color: #4A4A4A; /* Dark gray for text */
+    line-height: 1.7;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto;
-    background-color: #fff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF; /* White paper-like background for content */
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
     padding: 0;
+    overflow: hidden; /* To handle any overflowing content like shadows */
 }
 
 .section {
-    padding: 60px 30px;
+    padding: 80px 40px;
     text-align: center;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #F0EAD6; /* Lighter border for separation */
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
@@ -31,77 +34,117 @@ body {
 }
 
 .section.hidden {
-    /* display: none; */ /* Sementara dinonaktifkan */
+    display: none; /* Keep this to hide sections initially */
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero_background.jpg') no-repeat center center/cover;
-    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://via.placeholder.com/1200x800/8E8D8A/EAE7DC?text=Background+Rustic') no-repeat center center/cover;
+    color: #FFFFFF;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-bottom: none;
+    position: relative; /* For decorative elements */
 }
 
-.hero .greeting {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+.hero::before, .hero::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background: url('https://i.imgur.com/your-rustic-border.png') repeat-x center bottom; /* Placeholder for a decorative border image */
+    background-size: auto 100%;
+}
+
+.hero::before {
+    top: 0;
+    transform: rotate(180deg);
+}
+
+.hero::after {
+    bottom: 0;
+}
+
+
+.hero .greeting, .hero .greeting-verse {
+    font-family: 'Lora', serif;
+    font-size: 1.3em;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
 .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5em;
-    margin: 10px 0;
-    letter-spacing: 2px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 4.5em;
+    margin: 10px 0 20px;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 }
 
 .hero .names {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5em;
-    margin: 15px 0;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5em;
+    margin: 15px 0 20px;
     font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 }
 
 .hero .date {
-    font-size: 1.5em;
+    font-family: 'Lora', serif;
+    font-size: 1.8em;
+    margin-top: 20px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.btn-open {
+    background-color: #A3B18A; /* Sage green */
+    color: white;
+    padding: 15px 35px;
+    border: 2px solid #588157; /* Darker green border */
+    border-radius: 50px; /* Pill shape */
+    font-size: 1.2em;
+    font-family: 'Lora', serif;
+    cursor: pointer;
+    margin-top: 40px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+}
+
+.btn-open:hover {
+    background-color: #588157;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.note-hero {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.8);
     margin-top: 20px;
 }
 
-#open-invitation {
-    background-color: #e74c3c;
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1em;
-    cursor: pointer;
-    margin-top: 30px;
-    transition: background-color 0.3s ease;
-}
-
-#open-invitation:hover {
-    background-color: #c0392b;
-}
 
 /* General Headings */
-h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5em;
-    color: #e74c3c;
+.section-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+    color: #588157; /* Darker sage green */
     margin-bottom: 40px;
     position: relative;
 }
 
-h2::after {
+.section-title::after {
     content: '';
     display: block;
-    width: 60px;
-    height: 3px;
-    background-color: #e74c3c;
-    margin: 15px auto 0;
+    width: 80px;
+    height: 2px;
+    background-color: #A3B18A;
+    margin: 20px auto 0;
+    border-radius: 5px;
 }
 
 /* Couple Section */
@@ -110,7 +153,7 @@ h2::after {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 50px;
 }
 
 .person {
@@ -118,237 +161,336 @@ h2::after {
     text-align: center;
 }
 
-.person img {
-    width: 150px;
-    height: 150px;
+.img-circle {
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #e74c3c;
+    border: 6px solid #A3B18A; /* Sage green border */
     margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .person h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8em;
-    color: #e74c3c;
-    margin-bottom: 5px;
+    font-family: 'Lora', serif;
+    font-size: 2em;
+    color: #588157;
+    margin-bottom: 8px;
 }
 
-.couple-details .and {
-    font-family: 'Playfair Display', serif;
-    font-size: 3em;
-    color: #555;
+.person p {
+    font-size: 1em;
+    color: #6B7A8F; /* Muted blue-gray */
 }
+
+.social-link a {
+    color: #A3B18A;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.social-link a:hover {
+    color: #588157;
+}
+
+.and-symbol {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4em;
+    color: #8E8D8A; /* Muted gray */
+    margin: 0 20px;
+}
+
+.quote {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.3em;
+    color: #6B7A8F;
+    margin-top: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 1px dashed #DCCDB4;
+    border-bottom: 1px dashed #DCCDB4;
+    padding: 20px 0;
+}
+
 
 /* Akad & Resepsi Section */
 .event-details {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 40px;
 }
 
 .event-card {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 30px;
-    flex-basis: 350px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
+    background-color: #FBFCF8; /* Very light cream */
+    border: 1px solid #DCCDB4; /* Light brown border */
+    border-radius: 12px;
+    padding: 35px;
+    flex-basis: 380px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .event-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
 .event-card h3 {
-    font-family: 'Playfair Display', serif;
-    color: #e74c3c;
-    font-size: 1.8em;
+    font-family: 'Lora', serif;
+    color: #588157;
+    font-size: 2.2em;
     margin-top: 0;
+    margin-bottom: 15px;
 }
 
-.event-card p {
-    margin-bottom: 10px;
+.event-time, .event-location {
+    font-size: 1.1em;
+    color: #6B7A8F;
+    margin-bottom: 8px;
 }
 
 .btn-map {
     display: inline-block;
-    background-color: #3498db;
+    background-color: #8E8D8A; /* Muted gray */
     color: white;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border-radius: 5px;
     text-decoration: none;
-    margin-top: 15px;
+    margin-top: 25px;
+    font-family: 'Roboto', sans-serif;
     transition: background-color 0.3s ease;
+    border: none;
+    letter-spacing: 0.5px;
 }
 
 .btn-map:hover {
-    background-color: #2980b9;
+    background-color: #6B7A8F;
 }
 
-.note {
-    margin-top: 30px;
+.note-protocol {
+    margin-top: 50px;
     font-style: italic;
-    color: #777;
+    color: #8E8D8A;
+    font-size: 0.95em;
 }
 
 /* Gallery Section */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
 
 .gallery-grid img {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid #F0EAD6; /* Light border */
 }
 
 .gallery-grid img:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.15);
 }
 
 /* RSVP Section */
-#rsvp-form {
+.rsvp-form {
     display: flex;
     flex-direction: column;
-    max-width: 500px;
+    max-width: 550px;
     margin: 0 auto;
     text-align: left;
+    background-color: #FBFCF8;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
-#rsvp-form label {
+.rsvp-form label {
     margin-top: 15px;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: 600;
+    color: #588157;
+    font-size: 1.05em;
 }
 
-#rsvp-form input,
-#rsvp-form select,
-#rsvp-form textarea {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form textarea {
+    padding: 14px;
+    border: 1px solid #DCCDB4;
+    border-radius: 8px;
     font-size: 1em;
     width: 100%;
-    box-sizing: border-box; /* Include padding in element's total width and height */
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    background-color: #FFFFFF;
 }
 
-#rsvp-form textarea {
+.rsvp-form textarea {
     resize: vertical;
+    min-height: 100px;
 }
 
-#rsvp-form button[type="submit"] {
-    background-color: #27ae60;
+.btn-submit {
+    background-color: #588157; /* Darker sage green */
     color: white;
-    padding: 15px 25px;
+    padding: 15px 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 1.1em;
     cursor: pointer;
-    margin-top: 25px;
-    transition: background-color 0.3s ease;
+    margin-top: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    letter-spacing: 0.5px;
 }
 
-#rsvp-form button[type="submit"]:hover {
-    background-color: #2ecc71;
+.btn-submit:hover {
+    background-color: #A3B18A;
+    transform: translateY(-2px);
+}
+
+.rsvp-status-message {
+    margin-top: 25px;
+    color: #588157;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-align: center;
 }
 
 /* Gift Section */
 .bank-details {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 30px;
-    max-width: 400px;
-    margin: 30px auto;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    background-color: #FBFCF8;
+    border: 1px solid #DCCDB4;
+    border-radius: 12px;
+    padding: 35px;
+    max-width: 450px;
+    margin: 40px auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     text-align: left;
 }
 
 .bank-details h3 {
-    font-family: 'Playfair Display', serif;
-    color: #e74c3c;
+    font-family: 'Lora', serif;
+    color: #588157;
     margin-top: 0;
-    font-size: 1.5em;
+    font-size: 1.8em;
+    margin-bottom: 15px;
 }
 
 .bank-details p {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #6B7A8F;
 }
 
-.thanks {
-    font-family: 'Playfair Display', serif;
-    font-size: 2em;
-    color: #e74c3c;
-    margin-top: 40px;
+.btn-copy {
+    background-color: #8E8D8A;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-copy:hover {
+    background-color: #6B7A8F;
+}
+
+.final-thanks {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8em;
+    color: #588157;
+    margin-top: 50px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 /* Footer */
 #footer {
-    background-color: #333;
-    color: #fff;
-    padding: 30px;
+    background-color: #8E8D8A; /* Muted gray */
+    color: #F0EAD6; /* Light cream */
+    padding: 40px;
     font-size: 0.9em;
-    border-top: 1px solid #555;
+    border-top: 1px solid #6B7A8F;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .section {
+        padding: 60px 25px;
+    }
+
     .hero h1 {
-        font-size: 2.8em;
+        font-size: 3.8em;
     }
 
     .hero .names {
-        font-size: 2em;
+        font-size: 2.8em;
     }
 
-    h2 {
-        font-size: 2em;
+    .section-title {
+        font-size: 2.5em;
     }
 
     .couple-details,
     .event-details {
         flex-direction: column;
-        gap: 25px;
+        gap: 30px;
     }
 
-    .person, .event-card {
+    .person, .event-card, .rsvp-form, .bank-details {
         flex-basis: auto;
         width: 100%;
+        max-width: none; /* Remove max-width for smaller screens */
     }
 
-    .section {
-        padding: 40px 20px;
+    .btn-open {
+        padding: 12px 30px;
+        font-size: 1.1em;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Stack images on small screens */
     }
 }
 
 @media (max-width: 480px) {
+    .section {
+        padding: 40px 15px;
+    }
+
     .hero h1 {
-        font-size: 2.2em;
+        font-size: 3em;
     }
 
     .hero .names {
-        font-size: 1.6em;
+        font-size: 2.2em;
     }
 
-    h2 {
-        font-size: 1.8em;
+    .hero .date {
+        font-size: 1.4em;
     }
 
-    .person img {
-        width: 120px;
-        height: 120px;
+    .section-title {
+        font-size: 2em;
     }
 
-    #open-invitation {
-        padding: 12px 25px;
-        font-size: 1em;
+    .img-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .and-symbol {
+        font-size: 3em;
     }
 }
