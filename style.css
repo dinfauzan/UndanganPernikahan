@@ -31,7 +31,7 @@ body {
 }
 
 .section.hidden {
-    display: none; /* Initially hide all sections except hero */
+    /* display: none; */ /* Sementara dinonaktifkan */
 }
 
 /* Hero Section */
